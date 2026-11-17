@@ -1,0 +1,25 @@
+name: Verify MatchMind
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: python -m pip install -r requirements-dev.txt
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: python -m matchmind.data --offline
+      - run: python -m matchmind.data --league la-liga --offline
+      - run: python -m matchmind.train
+      - run: python -m matchmind.train --league la-liga
+      - run: python -m pytest -q
+      - run: python -m ruff check .

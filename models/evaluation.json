@@ -1,0 +1,193 @@
+{
+  "data_provenance": {
+    "source": "OpenFootball football.json",
+    "license": "CC0-1.0",
+    "commit": "e6744429ee395bc86f247348c6184bb08d4eb361",
+    "sources": [
+      {
+        "season": "2020-21",
+        "url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2020-21/en.1.json",
+        "sha256": "21ddf26b48469da530c51ccc4857bf1a534bda3aed08766b55185efb142e9a20"
+      },
+      {
+        "season": "2021-22",
+        "url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2021-22/en.1.json",
+        "sha256": "fbdfd426fa18fa2f8630b77de87c082734da495ac4668d6d72f29f76b73b9564"
+      },
+      {
+        "season": "2022-23",
+        "url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2022-23/en.1.json",
+        "sha256": "8d09f0f9846981626cdfec48903e1f21e7c79aabe6f92535c9e092e8e79b808b"
+      },
+      {
+        "season": "2023-24",
+        "url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2023-24/en.1.json",
+        "sha256": "03e13eafbf78dfe00d7e89dd3bf6643986eb6e8fd86c7664aeb8c5bc0bed88d0"
+      },
+      {
+        "season": "2024-25",
+        "url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2024-25/en.1.json",
+        "sha256": "c3d18f552d83382cd4b6b21127adbbfe38e7f8618ddc979fb5404f2df07d0a75"
+      }
+    ],
+    "matches": 1900,
+    "data_start": "2020-09-12",
+    "data_end": "2025-05-25",
+    "csv_sha256": "5fae98326044c6052ae3fbdc09d1030d0be61074c48e7bb957fb00b457984ffa"
+  },
+  "outcome_order": [
+    "Home",
+    "Draw",
+    "Away"
+  ],
+  "brier_definition": "Mean sum of squared errors over all 3 classes; range 0 to 2, lower is better.",
+  "evaluation_protocol": "Fixed model trained before 2023-07-01; temperature fitted only on 2023/24; all test matches from July 2024 onward. No test tuning or in-season updating.",
+  "splits": {
+    "train": {
+      "count": 1140,
+      "start": "2020-09-12",
+      "end": "2023-05-28"
+    },
+    "calibration": {
+      "count": 380,
+      "start": "2023-08-11",
+      "end": "2024-05-19"
+    },
+    "test": {
+      "count": 380,
+      "start": "2024-08-16",
+      "end": "2025-05-25"
+    }
+  },
+  "temperature": 0.6984257606969138,
+  "metrics": {
+    "raw_poisson": {
+      "accuracy": 0.47368421052631576,
+      "log_loss": 1.0431794456513501,
+      "brier": 0.6280478716248857
+    },
+    "calibrated_poisson": {
+      "accuracy": 0.47368421052631576,
+      "log_loss": 1.0722767901350143,
+      "brier": 0.6461130134309179
+    },
+    "historical_frequency": {
+      "accuracy": 0.40789473684210525,
+      "log_loss": 1.078932280536095,
+      "brier": 0.6539396737457679
+    },
+    "always_home": {
+      "accuracy": 0.40789473684210525,
+      "log_loss": 21.34163687513515,
+      "brier": 1.1842105263157894
+    }
+  },
+  "unseen_test_teams": [
+    "Ipswich Town"
+  ],
+  "unseen_calibration_teams": [
+    "Luton Town"
+  ],
+  "unseen_calibration_matches": 38,
+  "unseen_team_matches": 38,
+  "unseen_team_policy": "Zero attack/defence effects (league average), without learning future scores.",
+  "reliability": [
+    {
+      "outcome": "Home",
+      "bin_lower": 0.0,
+      "bin_upper": 0.2,
+      "count": 39,
+      "mean_probability": 0.13368587619209604,
+      "observed_frequency": 0.20512820512820512
+    },
+    {
+      "outcome": "Home",
+      "bin_lower": 0.2,
+      "bin_upper": 0.4,
+      "count": 112,
+      "mean_probability": 0.30658801878396424,
+      "observed_frequency": 0.32142857142857145
+    },
+    {
+      "outcome": "Home",
+      "bin_lower": 0.4,
+      "bin_upper": 0.6,
+      "count": 121,
+      "mean_probability": 0.4976078366721028,
+      "observed_frequency": 0.4297520661157025
+    },
+    {
+      "outcome": "Home",
+      "bin_lower": 0.6,
+      "bin_upper": 0.8,
+      "count": 83,
+      "mean_probability": 0.6836381529292517,
+      "observed_frequency": 0.4819277108433735
+    },
+    {
+      "outcome": "Home",
+      "bin_lower": 0.8,
+      "bin_upper": 1.0,
+      "count": 25,
+      "mean_probability": 0.8584719407201205,
+      "observed_frequency": 0.76
+    },
+    {
+      "outcome": "Draw",
+      "bin_lower": 0.0,
+      "bin_upper": 0.2,
+      "count": 149,
+      "mean_probability": 0.15363057996928065,
+      "observed_frequency": 0.24161073825503357
+    },
+    {
+      "outcome": "Draw",
+      "bin_lower": 0.2,
+      "bin_upper": 0.4,
+      "count": 231,
+      "mean_probability": 0.22930948116437772,
+      "observed_frequency": 0.24675324675324675
+    },
+    {
+      "outcome": "Away",
+      "bin_lower": 0.0,
+      "bin_upper": 0.2,
+      "count": 111,
+      "mean_probability": 0.12248260365770945,
+      "observed_frequency": 0.22522522522522523
+    },
+    {
+      "outcome": "Away",
+      "bin_lower": 0.2,
+      "bin_upper": 0.4,
+      "count": 144,
+      "mean_probability": 0.29763811767550713,
+      "observed_frequency": 0.3541666666666667
+    },
+    {
+      "outcome": "Away",
+      "bin_lower": 0.4,
+      "bin_upper": 0.6,
+      "count": 87,
+      "mean_probability": 0.4912382719946894,
+      "observed_frequency": 0.41379310344827586
+    },
+    {
+      "outcome": "Away",
+      "bin_lower": 0.6,
+      "bin_upper": 0.8,
+      "count": 33,
+      "mean_probability": 0.6887129402229287,
+      "observed_frequency": 0.5454545454545454
+    },
+    {
+      "outcome": "Away",
+      "bin_lower": 0.8,
+      "bin_upper": 1.0,
+      "count": 5,
+      "mean_probability": 0.850383613936285,
+      "observed_frequency": 0.4
+    }
+  ],
+  "production_note": "Production goal model is refit on all matches, including test data. Historical temperature is transferred unchanged; production calibration and future accuracy are not independently verified. Reported test metrics belong only to evaluation_model.json."
+}

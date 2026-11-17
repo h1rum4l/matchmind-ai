@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap');
+html { scroll-behavior: smooth; scroll-padding-top: 28px; }
+.stApp { background: #070711; color: #eef0f6; }
+[data-testid="stHeader"] { background: #070711ee; }
+[data-testid="stMainBlockContainer"] { max-width: 1440px; padding: 3.7rem 2rem 4rem; }
+[data-testid="stHeading"] h1 { font-size: 1.9rem; font-weight: 500; }
+h2,h3 { font-weight: 500 !important; letter-spacing: -.03em; }
+[data-testid="stMetricValue"] { font-size: 2.2rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+[data-testid="stMetricLabel"] { color: #c2c0d0; }
+[data-testid="stForm"] { padding: 1.4rem; border-color: #ffffff24; background: #ffffff04; border-radius: 18px; }
+[data-testid="stBaseButton-primaryFormSubmit"] { background: #b8ffd0; border-color: #b8ffd0; color: #11271b; border-radius: 99px; min-height: 46px; padding: .6rem 1.5rem; }
+[data-testid="stBaseButton-primaryFormSubmit"]:hover { background: #ddffe7; border-color: #ddffe7; color: #11271b; }
+[data-testid="stTabs"] [role="tab"] { min-height: 48px; }
+[data-testid="stAlert"] { background: #ffffff08; color: #d3d0de; border: 1px solid #ffffff15; }
+[data-testid="stElementContainer"]:has(.mm-hero) { margin-bottom: 2rem; }
+a:focus-visible,button:focus-visible,input:focus-visible { outline: 3px solid #b8ffd0 !important; outline-offset: 3px; }
+.mm-model-note { color: #c5c3d2; font-size: 14px; max-width: 850px; line-height: 1.6; }
+@media(max-width:640px) {
+  [data-testid="stMainBlockContainer"] { padding: 3.5rem .65rem 3rem; }
+  [data-testid="stMetricValue"] { font-size: 1.8rem; }
+  [data-testid="stForm"] { padding: 1rem; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } }

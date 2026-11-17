@@ -1,0 +1,4 @@
+* text=auto
+*.csv text eol=lf
+data/raw/*.json -text
+data/la-liga/raw/*.json -text

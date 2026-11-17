@@ -1,0 +1,51 @@
+{
+  "source": "OpenFootball football.json",
+  "license": "CC0-1.0",
+  "commit": "e6744429ee395bc86f247348c6184bb08d4eb361",
+  "sources": [
+    {
+      "season": "2020-21",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2020-21/es.1.json",
+      "sha256": "817a41df564a1790147e97fc417922f6e9354b142b2baf6d376d809da2bd24b6",
+      "completed_matches": 380,
+      "missing_results": 0
+    },
+    {
+      "season": "2021-22",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2021-22/es.1.json",
+      "sha256": "7beb67dd49d7132bf9f7baea540342439b97ed4a7b21ffb90d3231a402c54d02",
+      "completed_matches": 380,
+      "missing_results": 0
+    },
+    {
+      "season": "2022-23",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2022-23/es.1.json",
+      "sha256": "0204c66c919c2cd5cc3d1ba26be4f68592e4e173843162a9e6755182ccf83778",
+      "completed_matches": 380,
+      "missing_results": 0
+    },
+    {
+      "season": "2023-24",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2023-24/es.1.json",
+      "sha256": "e4c1e1a958f224ba3c815c898982ab495b9577315cc58ee7a5e7b532960f738b",
+      "completed_matches": 380,
+      "missing_results": 0
+    },
+    {
+      "season": "2024-25",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/e6744429ee395bc86f247348c6184bb08d4eb361/2024-25/es.1.json",
+      "sha256": "da5bfa1b3634e1039d9e71aec50bdc847f8761189e3de235a4e730e0dc64ca38",
+      "completed_matches": 370,
+      "missing_results": 10
+    }
+  ],
+  "matches": 1890,
+  "data_start": "2020-09-12",
+  "data_end": "2025-05-18",
+  "csv_sha256": "19ed84615c90bdddbc699d7a3f323997ef33395aebed793b104771f96f61a44a",
+  "league": {
+    "id": "la-liga",
+    "name": "La Liga"
+  },
+  "missing_results": 10
+}
