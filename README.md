@@ -41,7 +41,7 @@ If you prefer Navigator, open **Environments**, select `football-ai`, and use it
 
 ### Build the website from source
 
-Install Node.js **22.12 or later in the 22 series, or Node 24 LTS**, from [nodejs.org](https://nodejs.org/en/download). Reopen Anaconda Prompt after installing it. [Vite's documented requirement](https://vite.dev/guide/) is Node 20.19+ or 22.12+; this project recommends the newer supported lines. From the project root, with Python dependencies installed:
+Install **Node.js 24 LTS** from [nodejs.org](https://nodejs.org/en/download). Reopen Anaconda Prompt after installing it. The project pins Node 24 for local and hosted builds. From the project root, with Python dependencies installed:
 
 ```bat
 node --version
@@ -253,7 +253,7 @@ Then visit `http://localhost:8501`. The legacy Streamlit interface remains Premi
 | Browser does not open | Visit `http://localhost:8000` while the Uvicorn terminal is running. |
 | Port 8000 is busy | Stop the other server, or use `--port 8001` and visit that port. Vite development proxy still expects port 8000 unless reconfigured. |
 | Website build is missing or old | Run `npm ci` and `npm run build` from the project root, then restart Uvicorn. |
-| `npm` is not recognized | Install Node 22.12+ or 24 LTS, reopen the terminal, and check `node --version`. |
+| `npm` is not recognized | Install Node 24 LTS, reopen the terminal, and check `node --version`. |
 | PowerShell blocks `npm.ps1` | Use `npm.cmd` or Anaconda Prompt; do not change global execution policy. |
 | Development page opens but predictions fail | Start the Python backend on port 8000 as well as Vite on 5173. |
 | Missing or invalid data/model | Run ingestion, then training, from the project root; read the first error. |

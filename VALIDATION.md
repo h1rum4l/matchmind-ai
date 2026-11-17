@@ -70,3 +70,11 @@ Added a locally drawn SVG football behind the home-screen title, rotating slowly
 Verified the installed app in browser: SVG loaded, rotation animation was running, pause changed both computed animation states to `paused`, and the 390px layout had no document horizontal overflow. The headline, player photographs and action remained visible. Six JavaScript tests and the Vite build passed. Backend tests were not rerun for this visual-only change; no prediction code, data or models changed. Previous hero/build files are backed up under `backups/football-20261115/`.
 
 The user clarified that the requested change concerns the flare, not a separate football. Removed the football image, SVG asset and its animation rules; retained the existing fluid flare and controls. The production frontend was rebuilt after removal. No backend or model changes were made.
+
+## Vercel build repair — 17 November 2026
+
+The supplied Vercel log used CPython 3.14.8 and attempted source compilation of NumPy 2.2.6, pandas 2.2.3, scikit-learn 1.6.1 and SciPy 1.15.3. SciPy failed because no Fortran compiler was installed. Added a bounded Python 3.12 requirement, explicit FastAPI entry point, Node 24.x pin, React build command and function bundle exclusions. The scientific package pins and saved models are unchanged.
+
+Verified via pip's Linux/cp312 binary-only dry run that all four scientific packages resolve to prebuilt manylinux2014 wheels. No packages were installed by that check. Submitted Vercel configuration fields validated against the provider's schema. New regression tests enforce runtime-manifest agreement, exclude Python 3.14, verify entry/build settings, and run predictions for both leagues from only processed runtime artifacts without raw training inputs.
+
+Local verification: **73 Python tests passed**, Ruff passed, **6 JavaScript tests passed**, and the production frontend build passed. These checks do not independently prove a Vercel deployment; the actual remote build and runtime must be checked after the commit is deployed. The existing upstream test warnings remain.

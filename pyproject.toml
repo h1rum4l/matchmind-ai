@@ -1,0 +1,15 @@
+[project]
+name = "matchmind-ai"
+version = "1.0.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "numpy==2.2.6",
+  "pandas==2.2.3",
+  "scipy==1.15.3",
+  "scikit-learn==1.6.1",
+  "fastapi==0.163.0",
+  "uvicorn==0.54.0",
+]
+
+[tool.vercel]
+entrypoint = "matchmind.api:app"

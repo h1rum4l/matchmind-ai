@@ -41,6 +41,28 @@ git push -u origin main
 
 Replace the remote URL with your repository. Review `git status` before committing. For an existing repository, preserve its history and remote rather than repeating initialization. GitHub authentication may open in your browser.
 
+## Vercel
+
+The repository includes `pyproject.toml` and `vercel.json` for a single FastAPI deployment that also builds and serves the React frontend. The Python manifest pins **3.12**, selects **`matchmind.api:app`**, and matches `requirements.txt`. This avoids selecting the optional Streamlit `app.py`. Node is pinned to **24.x**.
+
+Use these Vercel settings:
+
+- **Root Directory:** the repository root, containing `pyproject.toml`, `vercel.json`, and `package.json`.
+- **Framework:** FastAPI; use the committed configuration rather than a Vite-only preset.
+- **Build Command:** `npm ci && npm run build` (already set in `vercel.json`).
+- **Install Command:** leave the default; Vercel installs the Python dependencies.
+- **Output Directory:** disable an old custom override. FastAPI serves `frontend/dist/`; it is not a standalone Vite-only deployment.
+
+Push the configuration and allow the connected Git deployment to rebuild. A fresh build must show Python **3.12**, not 3.14. If retrying the earlier failure manually, redeploy without reusing the old build cache. No custom Uvicorn start command is needed on Vercel.
+
+The earlier failure used Python 3.14 and attempted to compile SciPy 1.15.3, then failed because no Fortran compiler was present. The existing pinned NumPy, pandas, SciPy and scikit-learn packages have prebuilt Python 3.12 Linux wheels. Installing a compiler or changing the model is not required to resolve that mismatch.
+
+Runtime CSVs, manifests, model JSONs, evaluation JSONs, and `frontend/dist/` must remain available. The function configuration excludes raw training inputs, local dependencies, tests, caches, backups and the legacy interface to keep the bundle smaller. The raw data remains in Git for reproducibility. FastAPI lifespan startup and mounted static files are supported by Vercel; keep the mounted directory in the bundle rather than enabling static-source exclusion.
+
+After deployment, test `/api/health`, the league selector, a prediction for each league, and both downloads. A successful build alone does not prove runtime startup is working. Stay on the existing Hobby/free setup; no paid upgrade is needed to address this compiler error.
+
+References: [Python version selection](https://vercel.com/docs/functions/runtimes/python/python-version), [FastAPI entry points, lifespan and static files](https://vercel.com/docs/frameworks/backend/fastapi), [Python runtime and bundle settings](https://vercel.com/docs/functions/runtimes/python).
+
 ## Free-tier example: Render
 
 Render currently offers a Free Python web service suitable for a hobby demonstration. Select the **Free** compute plan explicitly. This app needs no paid database or disk. [Render's free service documentation](https://render.com/docs/free).
